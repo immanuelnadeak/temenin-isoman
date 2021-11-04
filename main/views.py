@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.core import serializers
 
 from .forms import CreateUserForm
 from .decorators import *
@@ -85,3 +86,7 @@ def logout_user(request):
     # Redirect to home page.
     messages.success(request, 'You Have been logged out :D')
     return redirect('/')
+
+def daerah_json(request):
+    data = serializers.serialize('json', User.objects.all())
+    return HttpResponse(data, content_type="application/json")

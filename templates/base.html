@@ -17,56 +17,25 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 
     <!-- Fonts -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
     <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-    />
-    <script
-      src="https://kit.fontawesome.com/44ba2f71f0.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
+    <script src="https://kit.fontawesome.com/44ba2f71f0.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap scripts -->
-    <script
-      type="text/javascript"
-      src="{% static 'js/core/popper.min.js' %}"
-    ></script>
-    <script
-      type="text/javascript"
-      src="{% static 'js/core/bootstrap.min.js' %}"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://demos.creative-tim.com/material-kit/assets/js/material-kit.min.js?v=3.0.0"
-    ></script>
+    <script type="text/javascript" src="{% static 'js/core/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="https://demos.creative-tim.com/material-kit/assets/js/material-kit.min.js?v=3.0.0"></script>
 
     <!-- jQuery script -->
-    <script 
-      type="text/javascript"
-      src="//code.jquery.com/jquery-1.11.1.min.js"
-    ></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     {% block meta %} {% endblock meta %}
   </head>
 
   <body class="user-select-none">
-    {% block navbar %}
-      {% include 'navbar.html' with variant=variant %}
-    {% endblock navbar %} 
-
-    {% block content %} {% endblock content%}
-
-    {% include 'footer.html' %}
+    {% block navbar %} {% include 'navbar.html' with variant=variant %} {% endblock navbar %} {% block content %} {% endblock content%} {% include 'footer.html' %}
   </body>
 </html>

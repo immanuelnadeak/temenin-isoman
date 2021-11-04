@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('deteksi-mandiri/', include('deteksi_mandiri.urls'))
+    path('deteksi-mandiri/', include('deteksi_mandiri.urls')),
+    path('emergency-contact/', include('emergency_contact.urls'))
 ]

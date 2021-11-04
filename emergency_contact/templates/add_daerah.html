@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Temenin Isoman</title>
+
+    <!--Modal scripts-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!--local css and js scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock meta %}
+
+{% block navbar %}
+  {% with variant='dark' %}
+    {{block.super}}
+  {% endwith %}
+{% endblock navbar %}
+
+{% block content %}
+
+<div class="row mt-7 container" style="margin: auto">
+    <div class="col-12">
+        <a class="btn btn-primary" style="margin-left: -30px;" href="/emergency-contact/add-rs">Kembali</a>
+    </div>
+    <div class="col-12">
+        <h1 class="text-dark text-center">Emergency Contacts</h1>
+    </div>
+</div>
+<div class="row container" style="margin: auto;">
+    <div class="col-12 col-lg-4 justify-content-center mt-5" style="margin: auto">
+        <h4>Daerah yang sudah ada</h4>
+        <ul>
+            {% for daerah in list_daerah %}
+            <li value="{{daerah.id}}">{{daerah.daerah}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-12 col-lg-4 justify-content-center mt-5" style="margin: auto">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <div class="input-group input-group-outline my-3">
+                    <label for="daerah" class="form-label">Daerah Baru</label>
+                    <input name="daerah" type="text" class="form-control">
+                </div>
+                <input type="submit" class="btn bg-gradient-primary" value="Submit" required>
+            </fieldset>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-white" id="message" role="alert">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

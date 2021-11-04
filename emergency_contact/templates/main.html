@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>Temenin Isoman</title>
+
+<!--Modal scripts-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--local css and js scripts-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/static.css' %}">
+{% endblock meta %}
+
+{% block navbar %}
+  {% with variant='dark' %}
+    {{block.super}}
+  {% endwith %}
+{% endblock navbar %}
+
+{% block content %}
+<!-- Modal -->
+<div class="modal fade" id="rsModal" tabindex="-1" role="dialog" aria-labelledby="rsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rsModalLabel">Modal RS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="kalimat-telepon"></p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tidak</a>
+                <a id="NomorTelepon" href="#" type="button" class="btn bg-gradient-primary">Ya</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="text-dark mt-6 text-center">Emergency Contacts</h1>
+<div class="row container">
+    <div class="col-12 col-lg-6 justify-content-center">
+        <div class="row"></div>
+        <h3 class="text-start mt-4">Pilih Kota Anda Saat Ini</h3>
+        <select id="pilihDaerah">
+            <option hidden>Pilih Daerah</option>
+            {% for daerah in list_daerah %}
+                <option value="{{daerah.id}}">{{daerah.daerah}}</option>
+            {% endfor %}
+        </select>
+        <div class="card mt-5">
+            <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Rumah Sakit
+                            </th>
+                            <th
+                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                Nomor Telepon</th>
+                        </tr>
+                    </thead>
+                    <tbody id="container-rumah-sakit">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="mt-5">
+            {% if user.groups.all.0.name == 'fasilitas_kesehatan'%}
+            <button class="btn btn-primary container-fluid py-3" type="button"
+                onclick="location.href = '/emergency-contact/add-rs';" id="addRSButton">Tambah Rumah Sakit</button>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-12 col-lg-5 ms-auto me-auto ms-lg-auto me-lg-5">
+        <div class="card d-flex blur justify-content-center shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg p-3">
+                    <h3 class="text-center text-white text-primary mb-0">Contact us</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="iconWA" class="mt-4 mb-5">
+                    <a href="tel:0318430313">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                <p class="pb-3 text-center">
+                    Tekan gambar untuk segera terhubung ke hotline utama.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="hotline">
+        <p class="my-0">Hotline Covid-19</p>
+        <h3 class="my-0">119</h3>
+    </div>
+</div>
+{% endblock content %}>
