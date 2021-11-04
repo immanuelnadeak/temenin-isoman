@@ -30,7 +30,7 @@
 </div>
 <div class="row container" style="margin: auto;">
     <div class="col-12 col-lg-4 justify-content-center mt-5" style="margin: auto">
-        <h4>Daerah yang sudah ada</h4>
+        <h4>Kota yang sudah ada</h4>
         <ul>
             {% for daerah in list_daerah %}
             <li value="{{daerah.id}}">{{daerah.daerah}}</li>
@@ -42,7 +42,7 @@
             {% csrf_token %}
             <fieldset>
                 <div class="input-group input-group-outline my-3">
-                    <label for="daerah" class="form-label">Daerah Baru</label>
+                    <label for="daerah" class="form-label">Kota Baru</label>
                     <input name="daerah" type="text" class="form-control">
                 </div>
                 <input type="submit" class="btn bg-gradient-primary" value="Submit" required>

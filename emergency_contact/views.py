@@ -9,7 +9,7 @@ def index(request):
    list_daerah = Daerah.objects.all().values()
    list_rs = RumahSakit.objects.all().values()
    response = {'list_daerah':list_daerah, 'list_rs':list_rs}
-   
+
    return render(request, "main.html", response)
 
 def add_rs(request):
@@ -32,10 +32,10 @@ def add_daerah(request):
     
     if (form.is_valid() and request.method == 'POST'):
         form.save()
-        messages.success(request, 'Daerah Baru Berhasil Ditambahkan')
+        messages.success(request, 'Kota Baru Berhasil Ditambahkan')
     
     if ((not(form.is_valid())) and request.method == 'POST'):
-        messages.error(request, 'Daerah Sudah Ada')
+        messages.error(request, 'Kota Sudah Ada')
 
     response = {'form': form, 'list_daerah': list_daerah}
     return render(request, 'add_daerah.html', response)
