@@ -9,6 +9,7 @@ def index(request):
    list_daerah = Daerah.objects.all().values()
    list_rs = RumahSakit.objects.all().values()
    response = {'list_daerah':list_daerah, 'list_rs':list_rs}
+   
    return render(request, "main.html", response)
 
 def add_rs(request):
@@ -21,6 +22,7 @@ def add_rs(request):
     
     if ((not(form.is_valid())) and request.method == 'POST'):
         messages.error(request, 'Rumah Sakit Sudah Ada')
+        
     response = {'form': form, 'list_rs':list_rs, 'list_daerah':list_daerah}
     return render(request, 'add_rs.html', response)
 
