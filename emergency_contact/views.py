@@ -13,7 +13,7 @@ def index(request):
     list_daerah = Daerah.objects.all().values()
     list_rs = RumahSakit.objects.all().values()
     response = {'list_daerah':list_daerah, 'list_rs':list_rs}
-    return render(request, "main.html", response)
+    return render(request, "main_page.html", response)
 
 def add_rs(request):
     list_daerah = Daerah.objects.all().values()

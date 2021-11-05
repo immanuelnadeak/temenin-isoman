@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block navbar %}
+    {% with variant='dark' %}
+        {{block.super}}
+    {% endwith %}
+{% endblock navbar %}
+
 {% block meta %}
     <title>Temenin Isoman</title>
 
