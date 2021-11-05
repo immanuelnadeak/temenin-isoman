@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block meta %}
-<title>Temenin Isoman</title>
-<!--Modal scripts-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <title>Temenin Isoman</title>
 
-<!--local css and js scripts-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{% static 'js/main.js' %}"></script>
+  <!--Modal scripts-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!--local css and js scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 {% endblock meta %}
 
 {% block navbar %}
@@ -20,14 +21,12 @@
 
 <h1 class="text-dark mt-7 text-center">Emergency Contacts</h1>
 <div class="row container" style="margin: auto;">
-  <!-- </div> -->
-
   <div class="mt-5 col-12 col-lg-6 justify-content-center" style="margin: auto;">
 
     {% if messages %}
       {% for message in messages %}
-      <div class="alert alert-{{ message.tags }} text-white" id="message" role="alert">
-        {{ message }}
+        <div class="alert alert-{{ message.tags }} text-white" id="message" role="alert">
+          {{ message }}
         </div>
       {% endfor %}
     {% endif %}
@@ -72,5 +71,13 @@
     </form>
   </div>
 </div>
+
+<script>
+  setTimeout(() => {
+    if ($('#message').length > 0) {
+      $('#message').remove();
+    }
+  }, 2000);
+</script>
 
 {% endblock content %}
