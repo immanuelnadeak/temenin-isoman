@@ -14,10 +14,7 @@ $(document).ready(function () {
                         var option = $(`<tr>
                                         <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#rsModal" onclick="telepon('${item.fields.nama}', '${item.fields.telepon}')">${item.fields.nama}<br><small>${item.fields.alamat}</small></td>
                                         <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#rsModal" onclick="telepon('${item.fields.nama}', '${item.fields.telepon}')" class="text-center">${item.fields.telepon}</td>
-                                        {% if user.groups.all.0.name == 'fasilitas_kesehatan'%}
-                                        <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#editRSModal" onclick="editRs('${item.pk}', '${item.fields.nama}', '${item.fields.alamat}', '${item.fields.telepon}', '${item.fields.daerah}')">
-                                            <a href="#"><i class="fas fa-pencil-alt"></i></a></td>
-                                        {% endif %}
+                                        <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#editRSModal" onclick="editRs('${item.pk}', '${item.fields.nama}', '${item.fields.alamat}', '${item.fields.telepon}', '${item.fields.daerah}')"><a href="#"><i class="fas fa-pencil-alt"></i></a></td>
                                         <tr>`);
                         $("#container-rumah-sakit").append(option);
                     }
