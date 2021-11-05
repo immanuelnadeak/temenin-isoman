@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-from django.urls import path
-from .views import *
-
-
-urlpatterns = [
-    path('', QuizListView.as_view(), name='main-view'),
-    path('<pk>/', quiz_view, name='quiz-view'),
-    path('<pk>/data', quiz_data_view, name='quiz-data-view'),
-    path('<pk>/save', save_quiz_view, name='save-quiz-view')
-]
-=======
 from django.urls import path
 from .views import *
 
@@ -27,4 +15,3 @@ urlpatterns = [
     path('see-questions/<pk>/delete/<pk2>', delete_questions, name='delete-questions'),
     path('see-questions/<pk>/edit/<pk2>', edit_answers, name='edit-answers'),
 ]
->>>>>>> 99d81d9a1038e3c401a758a44d449b85248bed7d
