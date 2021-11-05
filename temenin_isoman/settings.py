@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'deteksi_mandiri',
     'bed_capacity',
     'tips_and_tricks',
+    'happy_notes',
     'emergency_contact'
 ]
 
