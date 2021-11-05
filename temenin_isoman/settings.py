@@ -56,7 +56,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'obat',
     'deteksi_mandiri',
+    'bed_capacity',
     'emergency_contact'
 ]
 
