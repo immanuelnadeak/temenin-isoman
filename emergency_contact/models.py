@@ -11,7 +11,7 @@ def validate_telepon(value):
 
 
 class Daerah(models.Model):
-    daerah = models.CharField(max_length=15, unique=True)
+    daerah = models.CharField(max_length=15, unique=True, default='')
 
     def __str__(self):
         return self.daerah
