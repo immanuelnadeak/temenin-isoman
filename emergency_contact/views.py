@@ -9,7 +9,6 @@ from .forms import DaerahForm, RumahSakitForm
 from django.contrib import messages;
 
 def index(request):
-
     list_daerah = Daerah.objects.all().values()
     list_rs = RumahSakit.objects.all().values()
     response = {'list_daerah':list_daerah, 'list_rs':list_rs}
@@ -44,6 +43,10 @@ def add_daerah(request):
 
 def daerah_json(request):
     data = serializers.serialize('json', RumahSakit.objects.all())
+    return HttpResponse(data, content_type="application/json")
+
+def rs_json(request):
+    data = serializers.serialize('json', Daerah.objects.all())
     return HttpResponse(data, content_type="application/json")
 
 def update_rs(request, pk):
